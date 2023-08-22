@@ -1,5 +1,5 @@
 const { wrtieFile } = require('fs/promises');
-const inquirer = require('inquire');
+const inquirer = require('inquirer');
 const { Circle, Triangle, Square } = require("./shapes.js");
 const { writeFile } = require('fs');
 
