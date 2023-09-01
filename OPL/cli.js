@@ -1,7 +1,7 @@
-const { wrtieFile } = require('fs/promises');
+const { writeFile } = require('fs/promises');
 const inquirer = require('inquirer');
 const { Circle, Triangle, Square } = require("./shapes.js");
-const { writeFile } = require('fs');
+// const { writeFileSy, writeFileSync } = require('fs');
 
 
 function CLI() {
@@ -10,7 +10,7 @@ function CLI() {
             type: "list",
             name: "shapeType",
             message: "select a shape",
-            choices: ["cricle", "triangle", "square"]
+            choices: ["circle", "triangle", "square"]
         },
         {
             type: "input",
@@ -21,14 +21,15 @@ function CLI() {
             type: "input",
             name: "text",
             message: "What is the text (must be no more than 3 characters)",
-            validate: (response) => response.lenght <= 3 || "Can only be 3 or less characters"
+            validate: (response) => response.length <= 3 || "Can only be 3 or less characters"
         },
         {
             type: "input",
-            name: "textcolor",
-            message: "What is the color of the shape?"
+            name: "textColor",
+            message: "What is the color of the text?"
         }
     ]).then(({ shapeType, shapeColor, text, textColor }) => {
+        // console.log(shapeColor)
         let newShape;
         switch (shapeType) {
             case "circle":
@@ -53,9 +54,9 @@ function CLI() {
 }
 
 function generateSVG(newShape, text, textColor) {
-    return `<svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
-    ${newShape.render()} <text x="150 y="125" font-size="50" text-anchor="middle" fill="${textColor}">${text}</text>
+    return `<svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    ${newShape.render()} <text x="150" y="125" font-size="50" text-anchor="middle" fill="${textColor}">${text}</text>
     </svg>`
 }
 
-module.exports = CLI
+module.exports = {CLI, generateSVG}

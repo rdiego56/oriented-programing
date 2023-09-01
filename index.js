@@ -1,3 +1,3 @@
-const CLI = require("./OPL/cli.js")
+const {CLI} = require("./OPL/cli.js")
 
 CLI();

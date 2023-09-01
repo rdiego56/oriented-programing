@@ -21,7 +21,7 @@ describe("Test Circle", () => {
     test("color should match input", () => {
         const shape = new Circle();
         shape.setColor("blue");
-        expect(shape.render()).toEqual('<cricle cx="25" cy="75" r="20" fill="blue"/>');
+        expect(shape.render()).toEqual('<circle cx="25" cy="75" r="20" fill="blue"/>');
     })
     test("SVG should output correctly", () => {
         const shape = new Circle();

@@ -9,7 +9,7 @@ class Shape {
 
 class Circle extends Shape {
     render() {
-        return `<cricle cx="25" cy="75" r="20" fill="${this.color}"/>`
+        return `<circle cx="150" cy="120" r="80" fill="${this.color}"/>`
     }
 }
 
